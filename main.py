@@ -1,7 +1,9 @@
 import cv2
 import time
 import glob
+import os
 from send_email import send_email
+from threading import Thread
 
 # Open a connection to the default camera (usually the first camera connected to the computer)
 video = cv2.VideoCapture(0)
@@ -15,7 +17,18 @@ cv2.resizeWindow("My video", 1280, 720)  # Adjust the size as needed, for exampl
 
 first_frame = None
 status_list = []  # Initialize a list to keep track of the status of motion detection
-count = 1 # Initialize a count to keep track of the number of saved frames
+count = 1  # Initialize a count to keep track of the number of saved frames
+
+
+# remove images from the image folder
+def clean_folder():
+    print("clean_folder function started")
+    images = glob.glob("images/*.png")
+    for image in images:
+        os.remove(image)
+    print("clean_folder function ended")
+
+
 # Start an infinite loop to continuously capture frames from the camera
 while True:
     status = 0
@@ -63,7 +76,13 @@ while True:
     status_list = status_list[-2:]  # Keep only the last two statuses in the lis
 
     if status_list[0] == 1 and status_list[1] == 0:
-        send_email(image_with_object)  # Send an email if motion stops
+        email_thread = Thread(target=send_email, args=(image_with_object,))  # Create a new thread for sending an email
+        email_thread.daemon = True
+        email_thread.start()
+
+        clean_thread = Thread(target=clean_folder)
+        clean_thread.daemon = True
+        clean_thread.start()  # Start the clean thread
 
     print(status_list)  # Print the status list for debugging purposes
 
@@ -78,3 +97,5 @@ while True:
 
 # Release the video capture object and close the camera connection
 video.release()
+
+
