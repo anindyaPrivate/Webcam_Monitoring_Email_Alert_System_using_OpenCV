@@ -1,5 +1,6 @@
 import cv2
 import time
+import glob
 from send_email import send_email
 
 # Open a connection to the default camera (usually the first camera connected to the computer)
@@ -14,7 +15,7 @@ cv2.resizeWindow("My video", 1280, 720)  # Adjust the size as needed, for exampl
 
 first_frame = None
 status_list = []  # Initialize a list to keep track of the status of motion detection
-
+count = 1 # Initialize a count to keep track of the number of saved frames
 # Start an infinite loop to continuously capture frames from the camera
 while True:
     status = 0
@@ -52,14 +53,19 @@ while True:
         rectangle = cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 3)
         if rectangle.any():
             status = 1
+            cv2.imwrite(f"images/{count}.png", frame)  # Save the current frame as an image file
+            count = count + 1
+            all_images = glob.glob("images/*.png")
+            index = int(len(all_images) / 2)  # Find the index of the middle image in the list
+            image_with_object = all_images[index]  # Get the middle image
 
     status_list.append(status)
     status_list = status_list[-2:]  # Keep only the last two statuses in the lis
 
     if status_list[0] == 1 and status_list[1] == 0:
-        send_email()  # Send an email if motion stops
+        send_email(image_with_object)  # Send an email if motion stops
 
-    print(status_list) # Print the status list for debugging purposes
+    print(status_list)  # Print the status list for debugging purposes
 
     cv2.imshow("My video", frame)
 
