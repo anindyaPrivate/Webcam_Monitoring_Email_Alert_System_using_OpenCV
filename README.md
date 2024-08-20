@@ -65,8 +65,34 @@ motion-detection-alert-system/
 ```
 # 🚀 Technologies Used
 OpenCV for image processing and motion detection 🖼️
+
 smtplib for sending email notifications 💌
+
 Threading for efficient multi-tasking 🧵
 
 # 📧 Email Functionality
 The send_email.py script uses Gmail's SMTP server to send email alerts. Make sure to set up your .env file with your credentials. If you're using Gmail, ensure that "Less Secure Apps" is enabled in your Gmail settings (or use an app-specific password).
+
+#🔧 Customization
+Motion Sensitivity: You can adjust the motion sensitivity by modifying the contour area in motion_detection.py:
+```bash
+if cv2.contourArea(contour) < 5000:
+    continue
+```
+Frame Size: You can adjust the frame size by modifying the resize dimensions:
+```bash
+cv2.resizeWindow("My video", 1280, 720)
+```
+
+#v 🤝 Contributing
+Feel free to submit issues, fork the repository, and make pull requests. Contributions are welcome! 🚀
+
+# 📝 License
+This project is licensed under the MIT License.
+
+# 🧑‍💻 Author
+Made with ❤️ by Anindya Das
+
+
+
+
