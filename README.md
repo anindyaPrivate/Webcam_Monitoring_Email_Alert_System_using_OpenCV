@@ -21,22 +21,22 @@ Welcome to the **Motion Detection and Alert System** project! This Python applic
    cd Webcam_Monitoring_Email_Alert_System_using_OpenCV
    ```
    
-# Install the required dependencies
+## Install the required dependencies
 ```bash
 pip install -r requirements.txt
 ```
-# Set up your environment variables
+## Set up your environment variables
 
 Create a '.env' file in the project directory and add your email credentials:
 ```bash
 webpassword=yourpassword
 ```
-# Run the application
+## Run the application
 ```bash
 python motion_detection.py
 ```
 
-# 🖥️ Usage
+## 🖥️ Usage
 Start the program:
 Once the program is running, it will open your webcam feed in a window called "My video". The application will begin detecting motion after initialization.
 
@@ -53,7 +53,7 @@ You will receive an email with the subject "New customer showed up!".
 
 To stop the motion detection, press the s key.
 
-# 📂 Project Structure
+## 📂 Project Structure
 ```bash
 motion-detection-alert-system/
 │
@@ -63,17 +63,17 @@ motion-detection-alert-system/
 ├── images/                # Directory to store captured images
 └── README.md              # This awesome README file 😎
 ```
-# 🚀 Technologies Used
+## 🚀 Technologies Used
 OpenCV for image processing and motion detection 🖼️
 
 smtplib for sending email notifications 💌
 
 Threading for efficient multi-tasking 🧵
 
-# 📧 Email Functionality
+## 📧 Email Functionality
 The send_email.py script uses Gmail's SMTP server to send email alerts. Make sure to set up your .env file with your credentials. If you're using Gmail, ensure that "Less Secure Apps" is enabled in your Gmail settings (or use an app-specific password).
 
-#🔧 Customization
+##🔧 Customization
 Motion Sensitivity: You can adjust the motion sensitivity by modifying the contour area in motion_detection.py:
 ```bash
 if cv2.contourArea(contour) < 5000:
@@ -84,10 +84,10 @@ Frame Size: You can adjust the frame size by modifying the resize dimensions:
 cv2.resizeWindow("My video", 1280, 720)
 ```
 
-# 🤝 Contributing
+## 🤝 Contributing
 Feel free to submit issues, fork the repository, and make pull requests. Contributions are welcome! 🚀
 
-# 🧑‍💻 Author
+## 🧑‍💻 Author
 Made with ❤️ by Anindya Das
 
 
