@@ -26,8 +26,10 @@ Welcome to the **Motion Detection and Alert System** project! This Python applic
 pip install -r requirements.txt
 ```
 # Set up your environment variables
+
+Create a '.env' file in the project directory and add your email credentials:
 ```bash
-echo "webpassword=yourpassword" > .env
+webpassword=yourpassword
 ```
 # Run the application
 ```bash
@@ -50,3 +52,21 @@ You will receive an email with the subject "New customer showed up!".
 ## Stopping the program:
 
 To stop the motion detection, press the s key.
+
+# 📂 Project Structure
+```bash
+motion-detection-alert-system/
+│
+├── .env                  # Environment variables for email credentials
+├── motion_detection.py    # Main script for motion detection
+├── send_email.py          # Script for sending email alerts
+├── images/                # Directory to store captured images
+└── README.md              # This awesome README file 😎
+```
+# 🚀 Technologies Used
+OpenCV for image processing and motion detection 🖼️
+smtplib for sending email notifications 💌
+Threading for efficient multi-tasking 🧵
+
+# 📧 Email Functionality
+The send_email.py script uses Gmail's SMTP server to send email alerts. Make sure to set up your .env file with your credentials. If you're using Gmail, ensure that "Less Secure Apps" is enabled in your Gmail settings (or use an app-specific password).
