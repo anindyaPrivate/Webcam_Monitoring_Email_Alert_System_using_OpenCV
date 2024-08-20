@@ -1,4 +1,4 @@
-# 📸 Motion Detection and Alert System 🚨
+# 📸 Webcam_Monitoring_Email_Alert_System_using_OpenCV 🚨
 
 Welcome to the **Motion Detection and Alert System** project! This Python application uses OpenCV to detect motion via a webcam and sends an email alert with a snapshot when motion is detected. Perfect for basic home security or surveillance systems. 🏠👀
 
@@ -57,8 +57,8 @@ To stop the motion detection, press the s key.
 ```bash
 motion-detection-alert-system/
 │
-├── .env                  # Environment variables for email credentials
-├── motion_detection.py    # Main script for motion detection
+├── .env                   # Environment variables for email credentials
+├── main.py                # Main script for motion detection
 ├── send_email.py          # Script for sending email alerts
 ├── images/                # Directory to store captured images
 └── README.md              # This awesome README file 😎
