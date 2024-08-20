@@ -84,11 +84,8 @@ Frame Size: You can adjust the frame size by modifying the resize dimensions:
 cv2.resizeWindow("My video", 1280, 720)
 ```
 
-#v 🤝 Contributing
+# 🤝 Contributing
 Feel free to submit issues, fork the repository, and make pull requests. Contributions are welcome! 🚀
-
-# 📝 License
-This project is licensed under the MIT License.
 
 # 🧑‍💻 Author
 Made with ❤️ by Anindya Das
