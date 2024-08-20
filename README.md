@@ -1,6 +1,6 @@
 # 📸 Webcam_Monitoring_Email_Alert_System_using_OpenCV 🚨
 
-Welcome to the **Motion Detection and Alert System** project! This Python application uses OpenCV to detect motion via a webcam and sends an email alert with a snapshot when motion is detected. Perfect for basic home security or surveillance systems. 🏠👀
+Welcome to the **Webcam_Monitoring_Email_Alert_System_using_OpenCV** project! This Python application uses OpenCV to detect motion via a webcam and sends an email alert with a snapshot when motion is detected. Perfect for basic home security or surveillance systems. 🏠👀
 
 ---
 
